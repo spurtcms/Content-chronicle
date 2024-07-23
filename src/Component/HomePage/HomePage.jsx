@@ -4,6 +4,7 @@ import Link from "next/link";
 import ImageComponent from '../ImageComponent';
 import moment from 'moment';
 import HomePageSkeleton from '../../utilities/SkeletonLoader/HomePageSkeleton';
+import { imageUrl } from '@/utilities/ImagePath';
 
 
 function HomePageAction({postchannel,Listdata}) {
@@ -80,8 +81,6 @@ else{
   });
 
   featuredata.push(Channeldata);
-console.log(Listdata,'Listdata')
-
 
   return (
    <>
@@ -99,10 +98,11 @@ console.log(Listdata,'Listdata')
             {/* map call */}
           {IntialData.map((response,index)=>(<>
           {index==0&&
+          <>
           <div className="group">
             <Link href={`/posts/${response?.slug}`}>
                               
-            <ImageComponent src={response?.coverImage} w={600} h={600} alt={"Picture of the author"}/>
+            <ImageComponent src={`${imageUrl}${response?.coverImage}`} w={600} h={600} alt={"Picture of the author"}/>
               {/* <img src="/img/blog-img5.png" className="w-full" /> */}
             </Link>
             <h5 className="text-activeblue-500 text-sm font-normal leading-4 mb-1 mt-6">{response?.channelName}</h5>
@@ -119,7 +119,7 @@ console.log(Listdata,'Listdata')
                 {response?.authorDetails?.ProfileImagePath
                 ?
                 (
-                <ImageComponent src={response?.authorDetails?.ProfileImagePath} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
+                <ImageComponent src={`${imageUrl}${response?.authorDetails?.ProfileImagePath}`} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
                 )
               
                 :
@@ -141,6 +141,7 @@ console.log(Listdata,'Listdata')
               </div>
             </div>
           </div>
+          </>
           }
           </>
           ))}
@@ -150,14 +151,14 @@ console.log(Listdata,'Listdata')
           <div>
           {IntialData.map((response,index)=>(
             <>
-            {index>0&&index<3&&
+            {index>0&&index<4&&
 
             <div className="flex gap-6 items-start pb-6 border-b border-gray-200 mb-6 lg:flex-row flex-col group">
           
             <>
               <Link href={`/posts/${response?.slug}`} className="md:w-auto w-full ">
                 {/* <img src={response?.coverImage} className="w-full h-40 min-w-0 max-w-40 md:max-w-0 md:m-0  md:min-w-40" /> */}
-                <ImageComponent src={response?.coverImage} w={160} h={160} alt={"Picture of the author"} className={"w-full h-40 min-w-0 max-w-40 md:max-w-0 md:m-0  md:min-w-40"}/>
+                <ImageComponent src={`${imageUrl}${response?.coverImage}`} w={160} h={160} alt={"Picture of the author"} className={"w-full h-40 min-w-0 max-w-40 md:max-w-0 md:m-0  md:min-w-40"}/>
               </Link>
               <div>
                 <h5 className="text-activeblue-500 text-sm font-normal leading-4 mb-1">{response?.channelName}</h5>
@@ -173,7 +174,7 @@ console.log(Listdata,'Listdata')
                 {response?.authorDetails?.ProfileImagePath
                 ?
                 (
-                <ImageComponent src={response?.authorDetails?.ProfileImagePath} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
+                <ImageComponent src={`${imageUrl}${response?.authorDetails?.ProfileImagePath}`} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
                 )
               
                 :
@@ -206,12 +207,13 @@ console.log(Listdata,'Listdata')
           {/* sec */}
         </div>
       
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pb-6 border-b border-gray-200 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pb-6 border-b border-gray-200 mb-4 ">
         {IntialData.map((response,index)=>(<>
-        {index>2&&
+        {index>3&&
+        <>
           <div className="pt-6 border-t border-gray-200 group">
             <Link href={`/posts/${response?.slug}`}>
-            <ImageComponent src={response?.coverImage} w={600} h={600} alt={"Picture of the author"}/>
+            <ImageComponent src={`${imageUrl}${response?.coverImage}`} w={600} h={600} alt={"Picture of the author"} className={"img-height"}/>
               {/* <img src="/img/blog-img5.png" /> */}
             </Link>
             <h5 className="text-activeblue-500 text-sm font-normal leading-4 mb-1 mt-6">{response?.channelName}</h5>
@@ -227,7 +229,7 @@ console.log(Listdata,'Listdata')
             {response?.authorDetails?.ProfileImagePath
                 ?
                 (
-                <ImageComponent src={response?.authorDetails?.ProfileImagePath} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
+                <ImageComponent src={`${imageUrl}${response?.authorDetails?.ProfileImagePath}`} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
                 )
               
                 :
@@ -248,6 +250,7 @@ console.log(Listdata,'Listdata')
               </div>
             </div>
           </div>
+          </>
           }
           </>))}
           
@@ -261,7 +264,6 @@ console.log(Listdata,'Listdata')
             
             {result&&result.map((datas,index)=>(
               <>
-              {console.log(datas,'datas')}
           <h4 className="text-black font-medium text-2xl leading-8 mb-4 px-10">
             {datas?.values?.[0]?.categories?.[0]?.at(-1)?.categoryName}
           </h4>
@@ -274,7 +276,7 @@ console.log(Listdata,'Listdata')
                       <div className="group">
                     
                       <Link href={`/posts/${datas?.values?.[0]?.slug}`} className="block mb-6">
-                        <ImageComponent src={datas?.values?.[0]?.coverImage} w={500} h={500} alt={"Picture of the author"} className={"w-full"}/>
+                        <ImageComponent src={`${imageUrl}${datas?.values?.[0]?.coverImage}`} w={500} h={500} alt={"Picture of the author"} className={datas.values.length>1 ?"h1-image" :"w-full h-image"}/>
                         {/* <img src="/img/blog-img5.png" className="w-full" /> */}
                       </Link>
                       <Link href={`/posts/${datas?.values?.[0]?.slug}`} className="group-hover:text-activeblue-500 group-hover:underline text-black text-4xl font-medium leading-10">
@@ -289,7 +291,7 @@ console.log(Listdata,'Listdata')
                           {datas?.values?.[0]?.authorDetails?.ProfileImagePath
                               ?
                               (
-                              <ImageComponent src={datas?.values?.[0]?.authorDetails?.ProfileImagePath} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
+                              <ImageComponent src={`${imageUrl}${datas?.values?.[0]?.authorDetails?.ProfileImagePath}`} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
                               )
                             
                               :
@@ -337,7 +339,7 @@ console.log(Listdata,'Listdata')
                                         {response?.authorDetails?.ProfileImagePath
                                                   ?
                                                   (
-                                                  <ImageComponent src={response?.authorDetails?.ProfileImagePath} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
+                                                  <ImageComponent src={`${imageUrl}${response?.authorDetails?.ProfileImagePath}`} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
                                                   )
                                                 
                                                   :

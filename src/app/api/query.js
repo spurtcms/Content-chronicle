@@ -41,10 +41,7 @@ export const GET_POSTS_LIST_QUERY = `query($channelId: Int, $title:String $categ
     }
     count
   }
-}
-
-
-  `;
+}`;
 
   export const GET_POSTS_CATEGORYLIST_QUERY = `query($hierarchylevel: Int!){
     categoriesList(hierarchyLevel: $hierarchylevel){

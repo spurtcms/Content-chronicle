@@ -100,3 +100,32 @@ body {
 .dark  .text-black-600{
   color: #FFFFFF;
 }
+.img-height{
+  height: 300px !important;
+  width: 100% !important;
+}
+
+.h-image{
+  width: 100% !important;
+  height: 604px !important;
+}
+.h1-image{
+  width: 100% !important;
+  height: 443px !important;
+}
+.post-img{
+  height: 544px !important;
+  width: 100% !important;
+}
+.channel-img{
+  height: 423px !important ;
+  width: 100% !important;
+}
+.c-image{
+  height: 209px !important;
+  width: 100% !important;
+}
+/* .h-8img{
+  height: 32px !important;
+  width: 32px !important;
+} */

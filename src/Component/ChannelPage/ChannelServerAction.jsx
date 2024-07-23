@@ -5,6 +5,7 @@ import Link from 'next/link'
 import ImageComponent from '../ImageComponent';
 import moment from 'moment';
 import ChannelPageSkeleton from '../../utilities/SkeletonLoader/ChannelPageSkeleton';
+import { imageUrl } from '@/utilities/ImagePath';
 
 export default function ChannelServerAction({data,postdatalist}) {
     const [skeleton,setSkeleton]=useState(true)
@@ -63,8 +64,10 @@ export default function ChannelServerAction({data,postdatalist}) {
                 {response?.authorDetails?.ProfileImagePath
                     ?
                     (
-                    <ImageComponent src={response?.authorDetails?.ProfileImagePath} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
-                    )
+                        <>
+                    <ImageComponent src={`${imageUrl}${response?.authorDetails?.ProfileImagePath}`} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
+                   
+                    </> )
                 
                     :
                     <>
@@ -84,7 +87,7 @@ export default function ChannelServerAction({data,postdatalist}) {
                 </div>
             </div>
             <div className="w-full lg:w-[67%]">
-            <ImageComponent src={response?.coverImage} w={500} h={500} alt={"Picture of the author"} className="w-full"/>
+            <ImageComponent src={`${imageUrl}${response?.coverImage}`} w={500} h={500} alt={"Picture of the author"} className="w-full channel-img"/>
                 {/* <img src="/img/blog-details-4.png" className="w-full" /> */}
             </div>
         </div>
@@ -98,7 +101,7 @@ export default function ChannelServerAction({data,postdatalist}) {
                 <>
                 <div className="flex flex-col gap-4 group">
                 <Link href="#">
-                <ImageComponent src={response?.coverImage} w={500} h={500} alt={"Picture of the author"} className="w-full"/>
+                <ImageComponent src={`${imageUrl}${response?.coverImage}`} w={500} h={500} alt={"Picture of the author"} className="w-full c-image"/>
                     {/* <img src="/img/blog-details-3.png" /> */}
                 </Link>
                 <div className="w-full">
@@ -115,7 +118,7 @@ export default function ChannelServerAction({data,postdatalist}) {
                     {response?.authorDetails?.ProfileImagePath
                     ?
                     (
-                    <ImageComponent src={response?.authorDetails?.ProfileImagePath} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
+                    <ImageComponent src={`${imageUrl}${response?.authorDetails?.ProfileImagePath}`} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
                     )
                 
                     :

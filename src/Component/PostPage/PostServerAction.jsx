@@ -4,6 +4,7 @@ import Link from 'next/link'
 import ImageComponent from '../ImageComponent'
 import moment from 'moment'
 import PostPageSkeleton from '../../utilities/SkeletonLoader/PostPageSkeleton'
+import { imageUrl } from '@/utilities/ImagePath'
 
 export default function PostServerAction({ data,listdata,params}) {
     const [skeleton,setSkeleton]=useState(true)
@@ -35,14 +36,14 @@ export default function PostServerAction({ data,listdata,params}) {
                         </h3>
                     {/* <p className="text-gray-500 text-lightbase lg:text-base font-light mb-6 leading-5">We’re asking for feedback on a proposed Acceptable Use Policy update to address the use of synthetic and manipulated media We’re asking for feedback on a proposed Acceptable Use Policy update to address the use of synthetic and manipulated media.</p> */}
                     
-                    <ImageComponent src={data?.channelEntryDetail?.coverImage} w={500} h={500} alt={"Picture of the author"} className={"w-full"}/> 
+                    <ImageComponent src={`${imageUrl}${data?.channelEntryDetail?.coverImage}`} w={500} h={500} alt={"Picture of the author"} className={"w-full post-img"}/> 
                     {/* <img src="/img/blog-img5.png" className="w-full" /> */}
                     <div className="flex justify-between items-center mt-4">
                         <div className="flex items-center gap-3">
                                         {data?.channelEntryDetail?.authorDetails?.ProfileImagePath
                                             ?
                                             (
-                                                <ImageComponent src={data?.channelEntryDetail?.authorDetails?.ProfileImagePath} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/> 
+                                                <ImageComponent src={`${imageUrl}${data?.channelEntryDetail?.authorDetails?.ProfileImagePath}`} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/> 
                                             )
                                             
                                             :
@@ -90,7 +91,7 @@ export default function PostServerAction({ data,listdata,params}) {
                                 <>
                                 <div className="flex flex-col gap-4 group">
                                             <Link href="#">
-                                            <ImageComponent src={result?.coverImage} w={500} h={500} alt={"Picture of the author"} className={"w-full rounded"}/> 
+                                            <ImageComponent src={`${imageUrl}${result?.coverImage}`} w={500} h={500} alt={"Picture of the author"} className={"w-full rounded"}/> 
                                                 {/* <img src="/img/blog-details-3.png" /> */}
                                             </Link>
                                             <div className="w-full">
@@ -104,7 +105,7 @@ export default function PostServerAction({ data,listdata,params}) {
                                                 />     
                                                 <div className="flex items-center gap-3">
                                                 {result.authorDetails.ProfileImagePath?
-                                                <ImageComponent src={result.authorDetails.ProfileImagePath} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>    
+                                                <ImageComponent src={`${imageUrl}${result.authorDetails.ProfileImagePath}`} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>    
                                                 :
                                                 <>
                                                 {`${result.authorDetails.FirstName} ${result.authorDetails.LastName}`.charAt(0)}
