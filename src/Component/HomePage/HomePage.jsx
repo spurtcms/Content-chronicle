@@ -102,17 +102,15 @@ else{
           <div className="group">
             <Link href={`/posts/${response?.slug}`}>
                               
-            <ImageComponent src={`${imageUrl}${response?.coverImage}`} w={600} h={600} alt={"Picture of the author"}/>
+            <ImageComponent src={`${imageUrl}${response?.coverImage}`} w={600} h={600} alt={"Picture of the author"} className={"w-chang"}/>
               {/* <img src="/img/blog-img5.png" className="w-full" /> */}
             </Link>
             <h5 className="text-activeblue-500 text-sm font-normal leading-4 mb-1 mt-6">{response?.channelName}</h5>
             <Link href={`/posts/${response?.slug}`} className="group-hover:text-activeblue-500  group-hover:underline text-black text-4xl font-medium leading-10 line-clamp">
               {response?.title}
             </Link>
-            <div className="mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-para"
-            dangerouslySetInnerHTML={{
-                                __html: response?.description,
-                              }}/>
+            <div className="mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-para desc"
+            dangerouslySetInnerHTML={{__html: response?.description.replaceAll("<br>"," "),}}/>
                 
             <div className="flex items-center gap-3">
                   {/* <div className='flex items-center justify-center relative h-8 w-8 overflow-hidden rounded-full bg-slate-300'>  */}
@@ -166,9 +164,9 @@ else{
                 
                 {response?.title}
                 </Link>
-                  <div className="w-60 mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-3"
+                  <div className="w-60 mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-3 desc"
             dangerouslySetInnerHTML={{
-                                __html: response?.description,
+                                __html: response?.description.replaceAll("<br>"," "),
                               }}/>
                 <div className="flex items-center gap-3">
                 {response?.authorDetails?.ProfileImagePath
@@ -220,9 +218,9 @@ else{
             <Link href={`/posts/${response?.slug}`} className="group-hover:text-activeblue-500 group-hover:underline text-black text-4xl font-medium leading-10 line-clamp-1">
             {response?.title}
             </Link>
-            <div className="mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-6"
+            <div className="mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-6 desc"
             dangerouslySetInnerHTML={{
-                                __html: response?.description,
+                                __html: response?.description.replaceAll("<br>"," "),
                               }}/>
             {/* <p className="mb-4 mt-2 text-gray-500 font-light text-base leading-5">Say goodbye to constant mouse clicking and hello to seamless navigation with GitHub shortcuts.</p> */}
             <div className="flex items-center gap-3">
@@ -282,9 +280,9 @@ else{
                       <Link href={`/posts/${datas?.values?.[0]?.slug}`} className="group-hover:text-activeblue-500 group-hover:underline text-black text-4xl font-medium leading-10">
                         {datas?.values?.[0]?.title}
                       </Link>
-                      <div className="mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-para"
+                      <div className="mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-para desc"
                                       dangerouslySetInnerHTML={{
-                                        __html: datas?.values?.[0]?.description,
+                                        __html: datas?.values?.[0]?.description.replaceAll("<br>"," "),
                                       }}
                       ></div>
                       <div className="flex items-center gap-3">
@@ -329,9 +327,9 @@ else{
                                         <Link href={`/posts/${response?.slug}`} className="group-hover:text-activeblue-500 group-hover:underline text-black text-2xl font-medium leading-7">
                                           {response?.title}
                                         </Link>
-                                        <div className="mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-des"
+                                        <div className="mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-des desc"
                                         dangerouslySetInnerHTML={{
-                                          __html: response.description,
+                                          __html: response.description.replaceAll("<br>"," "),
                                         }}
                                         >
                                           </div>

@@ -68,9 +68,9 @@ export default function PostServerAction({ data,listdata,params}) {
                     <div className="w-full h-px bg-gray-200 mt-4 mb-6"></div>
                     <div className="mb-4">
                         {/* <h3 className="text-lightxl lg:text-2xl font-medium leading-7 text-black mb-2">Semi-automating repetitive tasks</h3> */}
-                        <div className="text-gray-500 text-lightbase lg:text-base leading-6 font-normal"
+                        <div className="text-gray-500 text-lightbase lg:text-base leading-6 font-normal desc"
                         dangerouslySetInnerHTML={{
-                            __html: data?.channelEntryDetail?.description,
+                            __html: data?.channelEntryDetail?.description.replaceAll("<br>"," "),
                             }}>
                         
                         </div>
@@ -90,17 +90,17 @@ export default function PostServerAction({ data,listdata,params}) {
                                 {result.id !== data?.channelEntryDetail?.id ? (
                                 <>
                                 <div className="flex flex-col gap-4 group">
-                                            <Link href="#">
+                                            <Link href={`/posts/${result?.slug}`}>
                                             <ImageComponent src={`${imageUrl}${result?.coverImage}`} w={500} h={500} alt={"Picture of the author"} className={"w-full rounded"}/> 
                                                 {/* <img src="/img/blog-details-3.png" /> */}
                                             </Link>
                                             <div className="w-full">
-                                                <Link href="#" className="group-hover:text-activeblue-500 group-hover:underline text-black text-lightxl lg:text-2xl font-medium leading-7">
+                                                <Link href={`/posts/${result?.slug}`} className="group-hover:text-activeblue-500 group-hover:underline text-black text-lightxl lg:text-2xl font-medium leading-7">
                                                     {result?.title}
                                                 </Link>
-                                                <div className="text-gray-500 font-light text-lightbase lg:text-base leading-5 mb-4 mt-2 line-clamp-des"
+                                                <div className="text-gray-500 font-light text-lightbase lg:text-base leading-5 mb-4 mt-2 line-clamp-des desc"
                                                     dangerouslySetInnerHTML={{
-                                                    __html: result.description,
+                                                    __html: result.description.replaceAll("<br>"," "),
                                                     }}
                                                 />     
                                                 <div className="flex items-center gap-3">
