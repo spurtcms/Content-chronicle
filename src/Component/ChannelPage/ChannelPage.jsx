@@ -11,13 +11,30 @@ export default async function ChannelPage({params}) {
     let {slug}=params
 
 
-    let variable_list={ "limit": 50, "offset": 0}
+    let variable_list={
+      "commonFilter": {
+        "limit": 10,
+        "offset": 0,
+      },
+      
+      "entryFilter": {
+        "channelId": 1,
+      },
+      "AdditionalData": {
+        "authorDetails": true,
+        "categories": true
+      }
+    }
 
    const postdatalist=await fetchGraphQl(GET_POSTS_LIST_QUERY, variable_list)
 
 
   
-  let variable_slug = { channelSlug:slug};
+  let variable_slug = {
+    
+    "channelSlug": slug,
+    
+  };
   
   const postdata=await fetchGraphQl(GET_POSTS_CHANNELLIST_SLUG_QUERY, variable_slug)
 

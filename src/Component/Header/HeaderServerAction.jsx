@@ -20,6 +20,7 @@ import ThemeSwitch from '@/utilities/ThemeSwitch';
 
 
 function HeaderServerAction({postchannel}) {
+    
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [skeleton,setSkeleton]=useState(false)
     const [loader,setLoader]=useState(false)
@@ -113,7 +114,7 @@ function HeaderServerAction({postchannel}) {
                             <div className="-my-6 divide-y divide-gray-500/10">
                                 {/* skeleton */}
                                 <div className="space-y-8 py-6 flex flex-col">
-                                {postchannel.map((data,index)=>(
+                                {postchannel?.map((data,index)=>(
                                 <>
                                 
                                 {params?.slug==data.slugName?

@@ -8,7 +8,15 @@ import { notFound } from 'next/navigation'
 export async function generateMetadata({params}) {
 
 
-  let variable_slug={ "limit": 50, "offset": 0,"slug":params.slug}
+  let variable_slug={
+    
+    "slug": params.slug,
+    "AdditionalData": {
+      "authorDetails": true,
+      "categories": true
+    }
+    
+  }
 
   const postesdfs=await fetchGraphQl(GET_POSTS_SLUG_QUERY, variable_slug)
  let title=postesdfs?.channelEntryDetail?.title
@@ -25,16 +33,38 @@ export default async function PostAction({params}) {
  
     let {slug}=params
 
-    let variable_slug={"slug": slug}
+    let variable_slug={
+    
+      "slug": slug,
+      "AdditionalData": {
+        "authorDetails": true,
+        "categories": true
+      }
+      
+    }
   
     const postes=await fetchGraphQl(GET_POSTS_SLUG_QUERY, variable_slug)
   
-  let variable_list = { limit: 50, offset: 0 };
+  let variable_list = {
+    "commonFilter": {
+      "limit": 10,
+      "offset": 0,
+    },
+    
+    "entryFilter": {
+      "channelId": 1,
+    },
+    "AdditionalData": {
+      "authorDetails": true,
+      "categories": true
+    }
+  };
   const Listdata=await fetchGraphQl(GET_POSTS_LIST_QUERY, variable_list)
 
   if(postes?.channelEntryDetail?.slug != slug){
     return notFound();
   }
+
   return (
     <>
     <PostServerAction data={postes} listdata={Listdata} params={params}/>

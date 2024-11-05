@@ -4,16 +4,33 @@ import { fetchGraphQl } from '@/app/api/graphicql'
 import { GET_POSTS_CHANNELLIST_QUERY, GET_POSTS_LIST_QUERY } from '@/app/api/query'
 
 async function Home() {
-    let variable_category={"limit": 50, "offset":0,"hierarchylevel": 0}
+    let variable_category={
+      "filter": {
+        "limit": 10,
+        "offset": 0,  
+      }
+      
+    }
     const postchannel=await fetchGraphQl(GET_POSTS_CHANNELLIST_QUERY,variable_category) 
-    let variable_list = { limit: 50, offset: 0 };
+
+    let variable_list = {
+      "commonFilter": {
+        "limit": 10,
+        "offset": 0,
+      },
+      "AdditionalData": {
+        "authorDetails": true,
+        "categories": true
+      }
+    };
 
     const Listdata=await fetchGraphQl(GET_POSTS_LIST_QUERY, variable_list)
 
+    console.log(postchannel,'postchannel',Listdata);
   return (
 
     <>
-   <HomePageAction postchannel={postchannel?.channelList?.channellist} Listdata={Listdata?.channelEntriesList?.channelEntriesList}/>
+   <HomePageAction postchannel={postchannel?.ChannelList?.channellist} Listdata={Listdata?.ChannelEntriesList?.channelEntriesList}/>
     </>
   )
 }

@@ -5,7 +5,20 @@ import React from 'react'
 
 export async function generateMetadata({params}) {
 
-  let variable_list = { limit: 20, offset: 0 };
+  let variable_list = {
+    "commonFilter": {
+      "limit": 10,
+      "offset": 0,
+    },
+    
+    "entryFilter": {
+      "channelId": 1,
+    },
+    "AdditionalData": {
+      "authorDetails": true,
+      "categories": true
+    }
+  };
 
 const datas=await fetchGraphQl(GET_POSTS_LIST_QUERY, variable_list)
  let title=''
