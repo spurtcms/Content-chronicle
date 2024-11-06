@@ -7,8 +7,12 @@ import PostPageSkeleton from '../../utilities/SkeletonLoader/PostPageSkeleton'
 import { imageUrl } from '@/utilities/ImagePath'
 
 export default function PostServerAction({ data,listdata,params}) {
+
+    console.log(data,"dataaa");
+    console.log(listdata,"listdatazzz");
+
     const [skeleton,setSkeleton]=useState(true)
-   
+    // const [catNo, setCatNo] = useState()
 
     const postdata = listdata?.channelEntriesList?.channelEntriesList?.filter(
         (response) => response?.channelId == data?.channelEntryDetail?.channelId
@@ -20,13 +24,19 @@ export default function PostServerAction({ data,listdata,params}) {
          }
       },[])
 
+    //   const catgoId = params.slug
+
+    //   useEffect(() => {
+    //     setCatNo(catgoId)
+    //   }, [catgoId])
+
   return (
         <>   
             {skeleton?
             <PostPageSkeleton/>
             :
             <main className=" min-h-screen p-4 md:p-8 lg:p-20   max-w-screen-2xl m-auto">
-                {data&&(<>
+                {data&&(<> {console.log(data,"datammmmmm")}
                 <div className="px-0 lg:px-[100px] pb-4 border-b border-gray-200 mb-6">
                     <h6 className="text-black text-base leading-5 font-medium mb-1">
                     {data?.channelEntryDetail?.categories[0].at(-1).categoryName}
