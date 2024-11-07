@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation'
 
 export async function generateMetadata({params}) {
 
+  console.log(params,"paramaaaaas");
 
   let variable_slug={
     
@@ -18,9 +19,14 @@ export async function generateMetadata({params}) {
     
   }
 
+  console.log(variable_slug,"variable_slugggggggggggg");
+
   const postesdfs=await fetchGraphQl(GET_POSTS_SLUG_QUERY, variable_slug)
- let title=postesdfs?.channelEntryDetail?.title
- let description=postesdfs?.channelEntryDetail?.metaDescription
+
+ let title=postesdfs?.ChannelEntryDetail?.title
+ 
+ let description=postesdfs?.ChannelEntryDetail?.metaDescription
+
 
   return {
     title,
@@ -31,39 +37,51 @@ export async function generateMetadata({params}) {
 
 export default async function PostAction({params}) {
  
+  console.log(params,"dfghjk");
+
     let {slug}=params
 
     let variable_slug={
     
-      "slug": slug,
+      "slug": params?.slug,
       "AdditionalData": {
         "authorDetails": true,
         "categories": true
       }
       
     }
+
+   console.log(variable_slug,"variable_slugggg");
   
     const postes=await fetchGraphQl(GET_POSTS_SLUG_QUERY, variable_slug)
+
+    console.log(postes,"postesooooo");
   
   let variable_list = {
     "commonFilter": {
       "limit": 10,
       "offset": 0,
     },
-    
-    "entryFilter": {
-      "channelId": 1,
-    },
+
     "AdditionalData": {
       "authorDetails": true,
       "categories": true
     }
   };
+
+  console.log(variable_list,"variable_listttttttt");
+
   const Listdata=await fetchGraphQl(GET_POSTS_LIST_QUERY, variable_list)
 
-  if(postes?.channelEntryDetail?.slug != slug){
-    return notFound();
-  }
+  console.log(Listdata,"ListdataLLLLLLLLL");
+
+  // if(postes?.ChannelEntryDetail?.slug != slug){
+  //   return notFound();
+  // }
+
+if(!postes){
+  return notFound()
+}
 
   return (
     <>

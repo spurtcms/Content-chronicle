@@ -9,14 +9,17 @@ import { imageUrl } from '@/utilities/ImagePath';
 import NodataImg from '../NodataImg';
 
 export default function ChannelServerAction({data,postdatalist}) {
+
+    console.log(data,"nnbnbnbnns",postdatalist);
+
     const [skeleton,setSkeleton]=useState(true)
 
-    const ChannelList = postdatalist?.channelEntriesList?.channelEntriesList.filter(
-        (response) => response.channelId === data?.channelDetail?.id
-      );
+    const ChannelList = postdatalist?.ChannelEntriesList?.channelEntriesList?.filter((response) => response.channelId === data?.ChannelDetail?.id);
+
+      console.log(ChannelList,"ChannelListlklklk");
 
       let FeatureChannel=[]
-      ChannelList.map((data,index)=>{
+      ChannelList?.map((data,index)=>{
         
         if(data.featuredEntry==1){
             FeatureChannel.push(data)
@@ -31,6 +34,8 @@ export default function ChannelServerAction({data,postdatalist}) {
        
       },[])
 
+
+      console.log(ChannelList,"lehgth");
   return (
    <>
 
@@ -42,12 +47,12 @@ export default function ChannelServerAction({data,postdatalist}) {
    </>
    :
    <>
-   {ChannelList&&ChannelList?.length>0 ?
+   {ChannelList&&ChannelList?.length > 0 ?
     <main className=" min-h-screen p-4 md:p-8 lg:p-20  max-w-screen-2xl m-auto">
     <div className="flex flex-col gap-1 pb-6 border-b border-gray-200">
         <h6 className="text-gray-500 text-base font-light leading-5">Category</h6>
         <h3 className="text-black text-[32px] font-medium leading-10">
-            {data?.channelDetail?.channelName}
+            {data?.ChannelDetail?.channelName}
         </h3>
     </div>
        
@@ -58,7 +63,7 @@ export default function ChannelServerAction({data,postdatalist}) {
                 <>
                 <div className="flex flex-col gap-4 group">
                 <Link href={`/posts/${response?.slug}`}>
-                <ImageComponent src={`${imageUrl}${response?.coverImage}`} w={500} h={500} alt={"Picture of the author"} className="w-full c-image"/>
+                <ImageComponent src={`${response?.coverImage}`} w={500} h={500} alt={"Picture of the author"} className="w-full c-image"/>
                     {/* <img src="/img/blog-details-3.png" /> */}
                 </Link>
                 <div className="w-full">
@@ -72,10 +77,10 @@ export default function ChannelServerAction({data,postdatalist}) {
                     />
                         
                     <div className="flex items-center gap-3">
-                    {response?.authorDetails?.ProfileImagePath
+                    {response?.authorDetails?.profileImagePath
                     ?
                     (
-                    <ImageComponent src={`${imageUrl}${response?.authorDetails?.ProfileImagePath}`} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
+                    <ImageComponent src={`${response?.authorDetails?.profileImagePath}`} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
                     )
                 
                     :
@@ -88,7 +93,7 @@ export default function ChannelServerAction({data,postdatalist}) {
                     }
                         {/* <img src="/img/blog-img1.png" className="w-10 h-10 rounded-full" /> */}
                         <div className="flex items-center gap-2">
-                            <h3 className="text-black text-sm font-normal">{`${response?.authorDetails?.FirstName} ${response?.authorDetails?.LastName}`}</h3>
+                            <h3 className="text-black text-sm font-normal">{`${response?.authorDetails?.firstName} ${response?.authorDetails?.lastName}`}</h3>
                             <p className=" text-gray-500 text-xs font-light">{moment(response?.createdOn).format("MMM DD, YYYY")}</p>
                         </div>
                     </div>
