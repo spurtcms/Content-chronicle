@@ -150,3 +150,7 @@ body {
 .nodata{
   height: calc(100vh - 11rem);
 }
+
+.desc .font-medium {
+  font-weight: 500 !important;
+}

@@ -17,12 +17,16 @@ async function Home() {
       "commonFilter": {
         "limit": 10,
         "offset": 0,
+        "keyword":""
+      },
+      "entryFilter": {
+        "Status": "Publish"
       },
       "AdditionalData": {
-        "authorDetails": true,
-        "categories": true
+        "categories": true,
+        "authorDetails": true
       }
-    };
+    }
 
     const Listdata=await fetchGraphQl(GET_POSTS_LIST_QUERY, variable_list)
 

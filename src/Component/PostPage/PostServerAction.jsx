@@ -32,6 +32,10 @@ export default function PostServerAction({ data,listdata,params}) {
     //     setCatNo(catgoId)
     //   }, [catgoId])
 
+    console.log(data,"dfghjkl");
+
+    const imagepic = data?.ChannelEntryDetail?.coverImage || "/img/no-image.png";
+
   return (
         <>   
             {skeleton?
@@ -45,10 +49,26 @@ export default function PostServerAction({ data,listdata,params}) {
                     </h6>
                     <h3 className="text-black text-lightxl lg:text-4xl lg:leading-[45px] font-medium mb-4">
                     {data?.ChannelEntryDetail?.title}
-                        </h3>
+                    </h3>
                     {/* <p className="text-gray-500 text-lightbase lg:text-base font-light mb-6 leading-5">We’re asking for feedback on a proposed Acceptable Use Policy update to address the use of synthetic and manipulated media We’re asking for feedback on a proposed Acceptable Use Policy update to address the use of synthetic and manipulated media.</p> */}
                     
-                    <ImageComponent src={`${data?.ChannelEntryDetail?.coverImage}`} w={500} h={500} alt={"Picture of the author"} className={"w-full post-img"}/> 
+                    {/* <ImageComponent src={`${data?.ChannelEntryDetail?.coverImage}`} w={500} h={500} alt={"Picture of the author"} className={"w-full post-img"}
+                     onError={({ currentTarget }) => {
+                        currentTarget.onerror = null;
+                        currentTarget.src = "/img/no-image.png";
+                    }}/>  */}
+
+                     <ImageComponent
+                src={imagepic}
+                w={500}
+                h={500}
+                alt={"Picture of the author"}
+                className={"w-full post-img"}
+               
+            />
+
+
+
                     {/* <img src="/img/blog-img5.png" className="w-full" /> */}
                     <div className="flex justify-between items-center mt-4">
                         <div className="flex items-center gap-3">

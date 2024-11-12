@@ -14,7 +14,7 @@ export default function ChannelServerAction({data,postdatalist}) {
 
     const [skeleton,setSkeleton]=useState(true)
 
-    const ChannelList = postdatalist?.ChannelEntriesList?.channelEntriesList?.filter((response) => response.channelId === data?.ChannelDetail?.id);
+    const ChannelList = postdatalist?.ChannelEntriesList?.channelEntriesList?.filter((response) => (response?.channelId) === data?.ChannelDetail?.id);
 
       console.log(ChannelList,"ChannelListlklklk");
 
@@ -23,6 +23,7 @@ export default function ChannelServerAction({data,postdatalist}) {
         
         if(data.featuredEntry==1){
             FeatureChannel.push(data)
+            console.log(FeatureChannel,"FeatureChannelklklk");
         }
       })
 
@@ -36,6 +37,9 @@ export default function ChannelServerAction({data,postdatalist}) {
 
 
       console.log(ChannelList,"lehgth");
+      console.log(data,"drdrdrdr");
+
+      const imagepic = data?.ChannelEntryDetail?.coverImage || "/img/no-image.png";
   return (
    <>
 
@@ -58,12 +62,19 @@ export default function ChannelServerAction({data,postdatalist}) {
        
     <div className="pt-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-6">
+        {console.log(ChannelList, "jujuuuuuu")}
             {ChannelList.map((response,index)=>(
                 response?.featuredEntry!==1&&
-                <>
+                <>{console.log(response,"responseeeeee")}
                 <div className="flex flex-col gap-4 group">
                 <Link href={`/posts/${response?.slug}`}>
-                <ImageComponent src={`${response?.coverImage}`} w={500} h={500} alt={"Picture of the author"} className="w-full c-image"/>
+
+               {response?.coverImage ?    
+                <ImageComponent src={`${response?.coverImage}`} w={500} h={500} alt={"Picture of the author"} className="w-full c-image" /> :
+                <>
+                    <img src="/img/no-image.png" style={{ position: 'relative', height: '209px', width: '100%' }}/>
+                </>
+                 }
                     {/* <img src="/img/blog-details-3.png" /> */}
                 </Link>
                 <div className="w-full">
@@ -77,19 +88,20 @@ export default function ChannelServerAction({data,postdatalist}) {
                     />
                         
                     <div className="flex items-center gap-3">
-                    {response?.authorDetails?.profileImagePath
-                    ?
-                    (
-                    <ImageComponent src={`${response?.authorDetails?.profileImagePath}`} w={40} h={40} alt={"Picture of the author"} className={"rounded-full"}/>   
-                    )
+                        {console.log(response,"responsevvv")}
+                    {response?.authorDetails?.profileImagePath ?
+                        <>
                 
-                    :
-                    <>
-                    <div className='flex text-black items-center justify-center relative h-8 w-8 overflow-hidden rounded-full bg-slate-300'>
-                    {/* {`${response?.authorDetails?.FirstName} ${response?.authorDetails?.LastName}`.charAt(0)} */}
-                    <img src="/img/user1.jpg" />
-                    </div>
-                    </>
+                         <ImageComponent src={`${imageUrl}${response?.authorDetails?.profileImagePath}`} w={40} h={40} alt={""} className={"rounded-full"}/>  
+                         </> :             
+                         
+                         <>
+                        <div className='flex text-black items-center justify-center relative h-8 w-8 overflow-hidden rounded-full  bg-slate-300'>
+                             {/* {`${response?.authorDetails?.FirstName} ${response?.authorDetails?.LastName}`.charAt(0)} */}
+                         <img src="/img/user1.jpg" />
+                         
+                         </div>
+                         </>
                     }
                         {/* <img src="/img/blog-img1.png" className="w-10 h-10 rounded-full" /> */}
                         <div className="flex items-center gap-2">

@@ -57,18 +57,20 @@ export default async function PostAction({params}) {
 
     console.log(postes,"postesooooo");
   
-  let variable_list = {
+  let variable_list ={
     "commonFilter": {
       "limit": 10,
       "offset": 0,
+      "keyword":""
     },
-
+    "entryFilter": {
+      "Status": "Publish"
+    },
     "AdditionalData": {
-      "authorDetails": true,
-      "categories": true
+      "categories": true,
+      "authorDetails": true
     }
-  };
-
+  }
   console.log(variable_list,"variable_listttttttt");
 
   const Listdata=await fetchGraphQl(GET_POSTS_LIST_QUERY, variable_list)

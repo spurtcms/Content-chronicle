@@ -10,16 +10,16 @@ export async function generateMetadata({params}) {
     "commonFilter": {
       "limit": 10,
       "offset": 0,
+      "keyword":""
     },
-    
     "entryFilter": {
-      "channelId": 1,
+      "Status": "Publish"
     },
     "AdditionalData": {
-      "authorDetails": true,
-      "categories": true
+      "categories": true,
+      "authorDetails": true
     }
-  };
+  }
 
 const datas=await fetchGraphQl(GET_POSTS_LIST_QUERY, variable_list)
  let title=''
