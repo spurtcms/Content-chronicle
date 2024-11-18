@@ -154,3 +154,7 @@ body {
 .desc .font-medium {
   font-weight: 500 !important;
 }
+
+.aspect-\[16\/9\] {
+  aspect-ratio: 16 / 9;
+}
