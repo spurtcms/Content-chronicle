@@ -47,7 +47,7 @@ function HeaderServerAction({postchannel}) {
                     className="mx-auto flex max-w-screen-2xl items-center justify-between p-4 lg:px-20 lg:py-6 h-[72px]"
                     aria-label="Global"
                 >
-                    <a href='/' ><img src="/img/blog-logo.svg" /></a>
+                    <Link href='/' ><img src="/img/blog-logo.svg" /></Link>
                     <div className="flex lg:hidden ml-auto">
                         <button
                             type="button"

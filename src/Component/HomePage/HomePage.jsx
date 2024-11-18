@@ -115,7 +115,7 @@ else{
               {response?.title}
             </Link>
             <div className="mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-para desc"
-            dangerouslySetInnerHTML={{__html: response?.description.replaceAll("<br>"," "),}}/>
+            dangerouslySetInnerHTML={{__html: response?.description.replaceAll("<br>"," ").replace(/p-\[24px_60px_10px\]/g, "")}}/>
                 
             <div className="flex items-center gap-3">
                   {/* <div className='flex items-center justify-center relative h-8 w-8 overflow-hidden rounded-full bg-slate-300'>  */}
@@ -171,7 +171,7 @@ else{
                 </Link>
                   <div className="w-60 mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-3 desc"
             dangerouslySetInnerHTML={{
-                                __html: response?.description.replaceAll("<br>"," "),
+                                __html: response?.description.replaceAll("<br>"," ").replace(/p-\[24px_60px_10px\]/g, "") 
                               }}/>
                <div className="flex items-center gap-3">
                   {/* <div className='flex items-center justify-center relative h-8 w-8 overflow-hidden rounded-full bg-slate-300'>  */}
@@ -289,7 +289,7 @@ else{
                       </Link>
                       <div className="mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-para desc"
                                       dangerouslySetInnerHTML={{
-                                        __html: datas?.values?.[0]?.description.replaceAll("<br>"," "),
+                                        __html: datas?.values?.[0]?.description.replaceAll("<br>"," ").replace(/p-\[24px_60px_10px\]/g, "")
                                       }}
                       ></div>
                       <div className="flex items-center gap-3">
@@ -336,7 +336,7 @@ else{
                                         </Link>
                                         <div className="mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-des desc"
                                         dangerouslySetInnerHTML={{
-                                          __html: response.description.replaceAll("<br>"," "),
+                                          __html: response.description.replaceAll("<br>"," ").replace(/p-\[24px_60px_10px\]/g, "")
                                         }}
                                         >
                                           </div>

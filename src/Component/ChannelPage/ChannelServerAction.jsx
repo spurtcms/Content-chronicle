@@ -83,7 +83,7 @@ export default function ChannelServerAction({data,postdatalist}) {
                     </Link>
                     <div className="text-gray-500 font-light text-lightbase lg:text-base leading-5 mb-4 mt-2 line-clamp-des desc"
                     dangerouslySetInnerHTML={{
-                        __html: response?.description.replaceAll("<br>"," "),
+                        __html: response?.description.replaceAll("<br>"," ").replace(/p-\[24px_60px_10px\]/g, "")
                         }}
                     />
                         

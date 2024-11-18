@@ -123,7 +123,7 @@ export default function PostServerAction({ data, listdata, params }) {
                                 {/* <h3 className="text-lightxl lg:text-2xl font-medium leading-7 text-black mb-2">Semi-automating repetitive tasks</h3> */}
                                 <div className="text-gray-500 text-lightbase lg:text-base leading-6 font-normal desc"
                                     dangerouslySetInnerHTML={{
-                                        __html: data?.ChannelEntryDetail?.description.replaceAll("<br>", " "),
+                                        __html: data?.ChannelEntryDetail?.description.replaceAll("<br>", " ").replace(/p-\[24px_60px_10px\]/g, "")
                                     }}>
 
                                 </div>
@@ -153,7 +153,7 @@ export default function PostServerAction({ data, listdata, params }) {
                                                             </Link>
                                                             <div className="text-gray-500 font-light text-lightbase lg:text-base leading-5 mb-4 mt-2 line-clamp-des desc"
                                                                 dangerouslySetInnerHTML={{
-                                                                    __html: result?.description?.replaceAll("<br>", " "),
+                                                                    __html: result?.description?.replaceAll("<br>", " ").replace(/p-\[24px_60px_10px\]/g, "")
                                                                 }}
                                                             />
                                                             <div className="flex items-center gap-3">
