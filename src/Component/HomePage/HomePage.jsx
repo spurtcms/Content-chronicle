@@ -5,10 +5,11 @@ import ImageComponent from '../ImageComponent';
 import moment from 'moment';
 import HomePageSkeleton from '../../utilities/SkeletonLoader/HomePageSkeleton';
 import { imageUrl } from '@/utilities/ImagePath';
-
+import { usePathname } from 'next/navigation';
 
 function HomePageAction({postchannel,Listdata}) {
 
+  const popstate = usePathname()
   console.log(Listdata,"Listdataaaa");
   console.log(postchannel,"postchannellll");
 
@@ -86,6 +87,22 @@ else{
   featuredata.push(Channeldata);
 
   console.log(IntialData,'IntialData234243',featuredata);
+
+
+  useEffect(()=>{
+    console.log( popstate, "pathnamevalue")
+    window.addEventListener('popstate', (e) =>{
+      if(e){
+        if(popstate === '/'){
+          window.location.reload()
+        }
+      }
+    })
+    // console.log(e,"user clicked back button")
+  },[popstate])
+
+
+
   return (
    <>
    {/* <LoaderBar Listdata={Listdata}/> */}
