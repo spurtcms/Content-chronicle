@@ -4,7 +4,7 @@
 
 
 
-This blog  With easy-to-edit sections and modern design elements, it allows you to focus on sharing your content without worrying about technical complexities that uses Next.js App Router for the frontend and [spurtcms][https://dev.spurtcms.com/] to handle its content. It comes with a native spurtcms that offers features like real-time collaboration and visual editing with live updates using [https://dev.spurtcms.com/documentation].
+This blog  With easy-to-edit sections and modern design elements, it allows you to focus on sharing your content without worrying about technical complexities that uses Next.js App Router for the frontend and [spurtcms][https://dev.spurtcms.com] to handle its content. It comes with a native spurtcms that offers features like real-time collaboration and visual editing with live updates using [https://dev.spurtcms.com/documentation].
 
 The Studio connects to spurtcms, which gives you hosted content APIs with a flexible query language, on-demand image transformations, powerful patching, and more. You can use this starter to kick-start a blog or learn these technologies.
 
