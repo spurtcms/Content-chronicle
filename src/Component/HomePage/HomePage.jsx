@@ -102,7 +102,7 @@ else{
   },[popstate])
 
 
-
+console.log(IntialData,'IntialData');
   return (
    <>
    {/* <LoaderBar Listdata={Listdata}/> */}

@@ -15,6 +15,9 @@ function ImageComponent({src,w,h,alt,className}) {
                                 width={w}
                                 height={h}
                                 className={className}
+                                onError={({ currentTarget }) => {
+                                  currentTarget.onerror = null;
+                                  currentTarget.src = "/img/no-image.png";}}
                               />
     </>
   )

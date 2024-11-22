@@ -14,7 +14,7 @@ export default async function ChannelPage({params}) {
 
     let variable_list={
       "commonFilter": {
-        "limit": 10,
+        "limit": 0,
         "offset": 0,
         "keyword":""
       },

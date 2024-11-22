@@ -62,10 +62,10 @@ export default function ChannelServerAction({data,postdatalist}) {
        
     <div className="pt-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-6">
-        {console.log(ChannelList, "jujuuuuuu")}
             {ChannelList.map((response,index)=>(
                 response?.featuredEntry!==1&&
-                <>{console.log(response,"responseeeeee")}
+                <>
+                {console.log(response,"responseeeeee")}
                 <div className="flex flex-col gap-4 group">
                 <Link href={`/posts/${response?.slug}`}>
 
