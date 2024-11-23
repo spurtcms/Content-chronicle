@@ -1,6 +1,6 @@
 # A Modern Template for Every Blogger powered by spurtcms using Next.js 
 
-![Screenshot of spurtCMS using Presentation Tool to do Visual Editing](https://dev.spurtcms.com/public/img/blog2.jpg)
+![Screenshot of spurtCMS using Presentation Tool to do Visual Editing](https://dev.spurtcms.com/public/img/blog4.jpg)
 
 
 
