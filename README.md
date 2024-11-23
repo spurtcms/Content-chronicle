@@ -4,7 +4,9 @@
 
 
 
-This blog  With easy-to-edit sections and modern design elements, it allows you to focus on sharing your content without worrying about technical complexities that uses Next.js App Router for the frontend and [spurtcms][https://dev.spurtcms.com] to handle its content. It comes with a native spurtcms that offers features like real-time collaboration and visual editing with live updates using [https://dev.spurtcms.com/documentation].
+This blog  with easy-to-edit sections and modern design elements, it allows you to focus on sharing your content without worrying about technical complexities that uses Next.js App Router for the frontend and [spurtcms](https://dev.spurtcms.com) to handle its content. 
+It comes with a native spurtcms that offers features like real-time collaboration and visual editing with live updates.Check out the [project documentaion](https://dev.spurtcms.com/documentation) for more details.
+
 
 The Studio connects to spurtcms, which gives you hosted content APIs with a flexible query language, on-demand image transformations, powerful patching, and more. You can use this starter to kick-start a blog or learn these technologies.
 
@@ -39,18 +41,23 @@ The Studio connects to spurtcms, which gives you hosted content APIs with a flex
 ## Set up environment variables
 
 Open .env and set  NEXT_PUBLIC_SPURTCMS_NEXTJS_STARTER_THEME_BASEURL  to  be the URL to your GraphQL endpoint in spurtCMS. 
+
+```bash
+NEXT_PUBLIC_SPURTCMS_NEXTJS_STARTER_THEME_BASEURL="https://your-graphql-endpoint-url"
+```
+
  
 ## Step 1. Steps to get API Key
  
  Before starting our Next JS blog template we need to go inside our spurtCMS Admin and get the default token that we will be using for displaying our content.
 
-1.Inside your spurtCMS Admin Panel [spurtcms][https://dev.spurtcms.com/] navigate to API Keys.
+1.Inside your spurtCMS Admin Panel [spurtcms](https://dev.spurtcms.com) navigate to API Keys.
 
 ![API Key 1 (1)](https://github.com/user-attachments/assets/b3806e8f-1dcd-4f75-88fe-8366b3036d47)
 
 
 
-2.click on the Action key
+2.Click on the Action key
 
 ![API Key 2 (1)](https://github.com/user-attachments/assets/7976ebe4-40f9-4c65-b99b-195e73ca2f9a)
 
@@ -64,9 +71,6 @@ Once you have your token add it to your env and it should look like this:
 
 
 
-```bash
-NEXT_PUBLIC_SPURTCMS_NEXTJS_STARTER_THEME_BASEURL=""
-```
 
 ```bash
 NEXT_PUBLIC_SPURTCMS_NEXTJS_STARTER_THEME_TOKEN="your-api-token"
@@ -93,5 +97,5 @@ npm run prod
 
 
 ## Feedback and Questions
-If you have feedback or questions about this starter, please use the Github Issues on this repo, [(https://github.com/spurtcms/nextjs-blog2-theme/issues)]
+If you have feedback or questions about this starter, please use the Github Issues on this repo, [(https://github.com/spurtcms/nextjs-blog4-theme/issues)]
 or Send Email to us [(support@spurtcms.com)]
