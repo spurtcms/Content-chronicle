@@ -131,8 +131,8 @@ console.log(IntialData,'IntialData');
             <Link href={`/posts/${response?.slug}`} className="group-hover:text-activeblue-500  group-hover:underline text-black text-4xl font-medium leading-10 line-clamp">
               {response?.title}
             </Link>
-            <div className="mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-para desc"
-            dangerouslySetInnerHTML={{__html: response?.description.replaceAll("<br>"," ")}}/>
+            <div className="mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-para desc h-[131px] overflow-hidden"
+            dangerouslySetInnerHTML={{__html: response?.description.description?.replaceAll("<br>"," ").replaceAll(/<div class="card[^"]*"(.*?)<\/div>/g, '').replaceAll(/<img[^>]*>/g, "").replace(/p-\[24px_60px_10px\]/g, "")}}/>
                 
             <div className="flex items-center gap-3">
                   {/* <div className='flex items-center justify-center relative h-8 w-8 overflow-hidden rounded-full bg-slate-300'>  */}
@@ -173,7 +173,7 @@ console.log(IntialData,'IntialData');
             <>{console.log(response,"response2")}
             {index>0&&index<4&&
 
-            <div className="flex gap-6 items-start pb-6 border-b border-gray-200 mb-6 lg:flex-row flex-col group">
+            <div className="flex gap-6 items-start pb-6 border-b border-gray-200 mb-6 lg:flex-row flex-col group h-[250px] overflow-hidden">
           
             <>
               <Link href={`/posts/${response?.slug}`} className="md:w-auto w-full ">
@@ -188,7 +188,7 @@ console.log(IntialData,'IntialData');
                 </Link>
                   <div className="w-60 mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-3 desc"
             dangerouslySetInnerHTML={{
-                                __html: response?.description.replaceAll("<br>"," ").replace(/p-\[24px_60px_10px\]/g, "") 
+                                __html: response?.description?.replaceAll("<br>"," ").replaceAll(/<div class="card[^"]*"(.*?)<\/div>/g, '').replaceAll(/<img[^>]*>/g, "").replace(/p-\[24px_60px_10px\]/g, "")
                               }}/>
                <div className="flex items-center gap-3">
                   {/* <div className='flex items-center justify-center relative h-8 w-8 overflow-hidden rounded-full bg-slate-300'>  */}
@@ -304,9 +304,9 @@ console.log(IntialData,'IntialData');
                       <Link href={`/posts/${datas?.values?.[0]?.slug}`} className="group-hover:text-activeblue-500 group-hover:underline text-black text-4xl font-medium leading-10">
                         {datas?.values?.[0]?.title}
                       </Link>
-                      <div className="mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-para desc"
+                      <div className="mb-4 mt-2 text-gray-500 font-light text-base leading-5 line-clamp-para desc h-[131px] overflow-hidden"
                                       dangerouslySetInnerHTML={{
-                                        __html: datas?.values?.[0]?.description.replaceAll("<br>"," ").replace(/p-\[24px_60px_10px\]/g, "")
+                                        __html: datas?.values?.[0]?.description.description?.replaceAll("<br>"," ").replaceAll(/<div class="card[^"]*"(.*?)<\/div>/g, '').replaceAll(/<img[^>]*>/g, "").replace(/p-\[24px_60px_10px\]/g, "")
                                       }}
                       ></div>
                       <div className="flex items-center gap-3">
