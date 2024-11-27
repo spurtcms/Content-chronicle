@@ -26,7 +26,6 @@ The Studio connects to spurtcms, which gives you hosted content APIs with a flex
 
 
 
-## Demo
 
 
 
