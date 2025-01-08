@@ -7,7 +7,6 @@ import React from 'react'
 
 export default function page({params}) {
 
-  console.log(params,"cvbnm")
   return (
     <>
     <PostAction params={params}/>

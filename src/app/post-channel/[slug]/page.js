@@ -5,7 +5,6 @@ import React from 'react'
 
 export async function generateMetadata({params}) {
 
-  console.log(params,"ssaparams")
   let variable_list = {
     "commonFilter": {
       "limit": 10,

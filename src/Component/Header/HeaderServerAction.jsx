@@ -21,7 +21,6 @@ import ThemeSwitch from '@/utilities/ThemeSwitch';
 
 function HeaderServerAction({postchannel}) {
     
-    console.log(postchannel,"postchannelllll");
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [skeleton,setSkeleton]=useState(false)
     const [loader,setLoader]=useState(false)
@@ -63,7 +62,7 @@ function HeaderServerAction({postchannel}) {
                         {skeleton?
                             <div className="flex lg:justify-center gap-6 w-11/12">
                                 {postchannel.map((data,index)=>(
-                                    <>{console.log(data,"datadatavvv")}
+                                    <>
                                     {params?.slug==data.slugName?
                                     <Link
                                     href={`/post-channel/${data?.slugName}`}

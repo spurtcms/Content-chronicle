@@ -3,7 +3,6 @@ import Image from 'next/image'
 
 function ImageComponent({src,w,h,alt,className}) {
     const hadleLoad=({src})=>{
-      console.log({src},"bybybyby");
     return src
     }
   return (

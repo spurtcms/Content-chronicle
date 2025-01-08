@@ -53,7 +53,6 @@ export default function PostServerAction({ data, listdata, params }) {
     //     setCatNo(catgoId)
     //   }, [catgoId])
 
-    console.log(data, "dfghjkl");
 
     const imagepic = data?.ChannelEntryDetail?.coverImage || "/img/no-image.png";
 

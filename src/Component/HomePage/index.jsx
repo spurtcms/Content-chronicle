@@ -30,7 +30,6 @@ async function Home() {
 
     const Listdata=await fetchGraphQl(GET_POSTS_LIST_QUERY, variable_list)
 
-    console.log(postchannel,'postchannel',Listdata);
 
 
   return (

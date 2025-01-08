@@ -26,11 +26,9 @@ export default async function ChannelPage({params}) {
         "authorDetails": true
       }
     }
-    console.log(variable_list,"variable_listnnnnn");
 
    const postdatalist=await fetchGraphQl(GET_POSTS_LIST_QUERY, variable_list)
 
-    console.log(postdatalist,"postdatalistzzzz");
   
   let variable_slug = {
     
@@ -43,7 +41,6 @@ export default async function ChannelPage({params}) {
 
   const postdata=await fetchGraphQl(GET_POSTS_CHANNELLIST_SLUG_QUERY, variable_slug)
 
-  console.log(postdata,"postdatajljljljl");
 
   if(!postdata){
     return notFound();

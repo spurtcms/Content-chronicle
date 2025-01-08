@@ -7,7 +7,6 @@ import { notFound } from 'next/navigation'
 
 export async function generateMetadata({params}) {
 
-  console.log(params,"paramaaaaas");
 
   let variable_slug={
     
@@ -19,7 +18,6 @@ export async function generateMetadata({params}) {
     
   }
 
-  console.log(variable_slug,"variable_slugggggggggggg");
 
   const postesdfs=await fetchGraphQl(GET_POSTS_SLUG_QUERY, variable_slug)
 
@@ -37,7 +35,6 @@ export async function generateMetadata({params}) {
 
 export default async function PostAction({params}) {
  
-  console.log(params,"dfghjk");
 
     let {slug}=params
 
@@ -51,11 +48,9 @@ export default async function PostAction({params}) {
       
     }
 
-   console.log(variable_slug,"variable_slugggg");
   
     const postes=await fetchGraphQl(GET_POSTS_SLUG_QUERY, variable_slug)
 
-    console.log(postes,"postesooooo");
   
   let variable_list ={
     "commonFilter": {
@@ -71,11 +66,9 @@ export default async function PostAction({params}) {
       "authorDetails": true
     }
   }
-  console.log(variable_list,"variable_listttttttt");
 
   const Listdata=await fetchGraphQl(GET_POSTS_LIST_QUERY, variable_list)
 
-  console.log(Listdata,"ListdataLLLLLLLLL");
 
   // if(postes?.ChannelEntryDetail?.slug != slug){
   //   return notFound();

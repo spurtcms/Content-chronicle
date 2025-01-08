@@ -10,20 +10,17 @@ import NodataImg from '../NodataImg';
 
 export default function ChannelServerAction({data,postdatalist}) {
 
-    console.log(data,"nnbnbnbnns",postdatalist);
 
     const [skeleton,setSkeleton]=useState(true)
 
     const ChannelList = postdatalist?.ChannelEntriesList?.channelEntriesList?.filter((response) => (response?.channelId) === data?.ChannelDetail?.id);
 
-      console.log(ChannelList,"ChannelListlklklk");
 
       let FeatureChannel=[]
       ChannelList?.map((data,index)=>{
         
         if(data.featuredEntry==1){
             FeatureChannel.push(data)
-            console.log(FeatureChannel,"FeatureChannelklklk");
         }
       })
 
@@ -36,8 +33,6 @@ export default function ChannelServerAction({data,postdatalist}) {
       },[])
 
 
-      console.log(ChannelList,"lehgth");
-      console.log(data,"drdrdrdr");
 
       const imagepic = data?.ChannelEntryDetail?.coverImage || "/img/no-image.png";
   return (
@@ -65,7 +60,6 @@ export default function ChannelServerAction({data,postdatalist}) {
             {ChannelList.map((response,index)=>(
                 response?.featuredEntry!==1&&
                 <>
-                {console.log(response,"responseeeeee")}
                 <div className="flex flex-col gap-4 group">
                 <Link href={`/posts/${response?.slug}`}>
 
@@ -88,7 +82,6 @@ export default function ChannelServerAction({data,postdatalist}) {
                     /> 
                         
                     <div className="flex items-center gap-3">
-                        {console.log(response,"responsevvv")}
                     {response?.authorDetails?.profileImagePath ?
                         <>
                 

@@ -13,7 +13,6 @@ async function Header() {
     }
     const postchannel=await fetchGraphQl(GET_POSTS_CHANNELLIST_QUERY,variable_category) 
 
-    console.log(postchannel,"postchannelmmmm");
     
    
   return (

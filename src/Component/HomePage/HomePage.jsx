@@ -10,8 +10,6 @@ import { usePathname } from 'next/navigation';
 function HomePageAction({postchannel,Listdata}) {
 
   const popstate = usePathname()
-  console.log(Listdata,"Listdataaaa");
-  console.log(postchannel,"postchannellll");
 
   const [skeleton,setSkeleton]=useState(true)
 
@@ -33,7 +31,6 @@ result.channelName=namefind.channelName
 }
 else{
     let filterData=IntialData.some((s)=>s.channelId===result.channelId)
-    console.log(filterData,"filterDataaaaa");
         if(filterData){
           
         }
@@ -86,11 +83,9 @@ else{
 
   featuredata.push(Channeldata);
 
-  console.log(IntialData,'IntialData234243',featuredata);
 
 
   useEffect(()=>{
-    console.log( popstate, "pathnamevalue")
     window.addEventListener('popstate', (e) =>{
       if(e){
         if(popstate === '/'){
@@ -98,11 +93,9 @@ else{
         }
       }
     })
-    // console.log(e,"user clicked back button")
   },[popstate])
 
 
-console.log(IntialData,'IntialData');
   return (
    <>
    {/* <LoaderBar Listdata={Listdata}/> */}
@@ -118,9 +111,9 @@ console.log(IntialData,'IntialData');
       
         <div className="grid grid-cols-1 md:grid-cols-8fr lg:grid-cols-1fr gap-8 lg:gap-12 mb-6">
             {/* map call */}
-          {IntialData.map((response,index)=>(<>{console.log(response,"responseeee")}
+          {IntialData.map((response,index)=>(<>
           {index == 0 &&
-          <>{console.log(response?.slug,"sluggggg")}
+          <>
           <div className="group">
             <Link href={`/posts/${response?.slug}`}>
                               
@@ -170,7 +163,7 @@ console.log(IntialData,'IntialData');
         
           <div>
           {IntialData.map((response,index)=>(
-            <>{console.log(response,"response2")}
+            <>
             {index>0&&index<4&&
 
             <div className="flex gap-6 items-start pb-6 border-b border-gray-200 mb-6 lg:flex-row flex-col group h-[250px] overflow-hidden">
@@ -230,7 +223,7 @@ console.log(IntialData,'IntialData');
         </div>
       
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pb-6 border-b border-gray-200 mb-4 ">
-        {IntialData.map((response,index)=>(<>{console.log(response,"response3")}
+        {IntialData.map((response,index)=>(<>
         {index>3&&
         <>
           <div className="pt-6 border-t border-gray-200 group">
@@ -284,8 +277,7 @@ console.log(IntialData,'IntialData');
           {featuredata&&featuredata.map((result)=>(
             <>
             {result&&result.map((datas,index)=>(
-              <>{console.log(datas,"resulthhhhh")}
-            
+              <>
           <h4 className="text-black font-medium text-2xl leading-8 mb-4 px-10">
             {datas?.values?.[0]?.categories?.[0]?.at(-1)?.categoryName}
           </h4>
@@ -337,7 +329,6 @@ console.log(IntialData,'IntialData');
                         </div>
                       </div>
                       </div>                
-               {console.log(datas?.values,"valueeee")}
                       {datas.values.length>1&&
                       
                       <div>
@@ -346,7 +337,7 @@ console.log(IntialData,'IntialData');
                         <>
                                 {datas.values.map((response, ind) =>
                                   ind!=0&& ind <= 3&&(
-                                    <>{console.log(response,"responsepppp")}
+                                    <>
                                       <div className="pb-6 mb-6 border-b border-gray-200 group">
                                         <Link href={`/posts/${response?.slug}`} className="group-hover:text-activeblue-500 group-hover:underline text-black text-2xl font-medium leading-7">
                                           {response?.title}
